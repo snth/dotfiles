@@ -27,7 +27,26 @@ Linux
 Then navigate to _gitserver_ and go to "Add SSH key" under your profile and
 then paste the clipboard contents.
 
+### Starting the ssh-agent
+
+In order to not have to enter the passphrase for your ssh-key each time (your
+ssh-key is passphrase protected right?), it is necessary to have the
+`ssh-agent` running in the background.
+
+You can start this with:
+
+    eval $(ssh-agent -s)
+    ssh-add ~/.ssh/id_rsa
+
 ## vcsh
+
+### Locations
+
+    * [https://github.com/RichiH/vcsh]()
+    * [Manage Your Configs with vcsh](
+       https://www.linuxjournal.com/content/manage-your-configs-vcsh)
+    * `~/.config/vcsh/`
+        * This is where the vcsh repos live on each system.
 
 ### Overview
 
@@ -93,6 +112,14 @@ or
 
     vcsh clone git@gitserver:vcsh-vim.git vim
 
+### Cleaning up
+
+In order to clean up any files installed on the system (for example if you want
+to deploy a fresh clean install), delete the following files and folders:
+
+    vcsh vim ls-files | xargs rm
+    rm -v -rf ~/.config/vcsh/repo.d/vim.git
+
 ### Multiple vcsh repositiories
 
 You can repeat the steps above for multiple repositories, for example for bash,
@@ -102,6 +129,11 @@ This process works but becomes a bit tedious after a while. To automate this
 for multiple repos we use the next tool.
 
 ## myrepos
+
+    * [https://github.com/RichiH/myrepos]()
+    * [https://myrepos.branchable.com/]()
+    * `~/.config/mr`
+        * This is where the `mr` repo lives on each system.
 
 ### Overview
 
@@ -146,3 +178,17 @@ repo:
 
 That's it! Those three simple lines are all that we need to all of our
 configurations deployed to a new machine.
+
+### Cleaning up
+
+In order to clean up any files installed on the system (for example if you want
+to deploy a fresh clean install), delete the following files and folders:
+
+    for repo in $(vcsh list);
+    do
+        vcsh $repo ls-files | xargs rm
+        rm -v -rf ~/.config/vcsh/repo.d/$repo.git
+    done
+    rm -v -rf ~/.config/mr
+    rm -v -rf ~/.gitignore.d/mr
+    rm -v -rf ~/.mrconfig
