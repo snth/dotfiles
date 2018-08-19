@@ -176,8 +176,26 @@ repo:
     vcsh clone git@gitserver:vcsh-mr.git mr
     mr up
 
-That's it! Those three simple lines are all that we need to all of our
-configurations deployed to a new machine.
+`vim` requires a few extra steps. These are documented in ~/.vim/README.md but
+for ease of reference they are:
+
+    cd ~/.vim
+    git submodule init
+    git submodule update
+
+That's it! Those lines are all that we need to all of our configurations
+deployed to a new machine.
+
+### Deploying on Windows Subsystem for Linux (WSL)
+
+Unfortunately there seems to be a bug with WSL implementation which breaks `mr`
+on wSL. I was however able to get it working with not too much additional
+effort:
+
+    for repo in bash git tmux vim; 
+    do
+        vcsh clone git@gitserver:vcsh-$repo.git $repo
+    done
 
 ### Cleaning up
 
