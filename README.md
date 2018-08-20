@@ -210,3 +210,18 @@ to deploy a fresh clean install), delete the following files and folders:
     rm -v -rf ~/.config/mr
     rm -v -rf ~/.gitignore.d/mr
     rm -v -rf ~/.mrconfig
+
+## Windows
+
+On Windows I use [cmder](https://github.com/cmderdev/cmder/wiki) as my terminal
+and then run [xonsh](https://github.com/xonsh/xonsh) (also [https://xon.sh]()).
+
+### Installing xonsh
+
+I use a Python 3.7 miniconda environment:
+
+    conda create -n py37 python=3.7
+    conda activate py37
+    conda install pygments prompt_toolkit win_unicode_console
+    pip install xonsh
+    pip install xontrib-powerline xontrib-prompt-vi-mode
