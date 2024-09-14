@@ -8,6 +8,10 @@ I now use chezmoi to manage my dotfiles.
 
    sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:/snth/dotfiles.git
 
+### Starship
+
+  curl -sS https://starship.rs/install.sh | sh
+
 ### Neovim
 
   # Prerequisites
@@ -24,6 +28,7 @@ I now use chezmoi to manage my dotfiles.
 ### LazyVim
 
   git clone https://github.com/LazyVim/starter ~/.config/nvim
+  nvim
 
 ### tmux
 
