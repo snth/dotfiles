@@ -41,3 +41,11 @@ I now use chezmoi to manage my dotfiles.
 ### Atuin
 
   TBC
+
+### Garage S3
+
+  TBC
+
+### JuiceFS
+
+  TBC
