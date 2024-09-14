@@ -66,8 +66,9 @@ I now use chezmoi to manage my dotfiles.
 ### Garage S3
 
   # download the garage binary
-  wget https://garagehq.deuxfleurs.fr/_releases/v1.0.0/x86_64-unknown-linux-musl/garage
+  wget -O ~/.local/bin/garage https://garagehq.deuxfleurs.fr/_releases/v1.0.0/x86_64-unknown-linux-musl/garage
   mv -v garage ~/.local/bin/
+  chmod +x ~/.local/bin/garage
 
   # create the required directories
   mkdir -v -p /data/garage/{meta,data}
@@ -136,7 +137,7 @@ I now use chezmoi to manage my dotfiles.
   garage bucket info test-bucket
 
   ## install and configure awscli
-  python -m pip install --user awscli
+  uv tool install awscli
 
   cat > ~/.awsrc <<EOF
   export AWS_ACCESS_KEY_ID=xxxx      # put your Key ID here
@@ -146,6 +147,15 @@ I now use chezmoi to manage my dotfiles.
 
   aws --version
   EOF
+
+  # add the key secret to .awsrc
+  garage key info --show-secret test-key
+  v ~/.awsrc
+
+  # activate and test
+  source ~/.awsrc
+  aws s3 ls
+  aws s3 ls s3://test
 
 ### JuiceFS
 
