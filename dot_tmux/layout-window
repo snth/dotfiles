@@ -1,0 +1,7 @@
+select-pane -t 0                        # select the first (0) pane
+split-window -h -p 50 -c ~/code         # split into two halves horizontally
+
+select-pane -t 0                        # select the original pane
+split-window -v -p 66 -c ~/code/ARGOBuild/docker    # split into two halves again
+
+select-pane -t 2                        # go back to the right pane
