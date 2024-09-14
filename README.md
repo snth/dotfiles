@@ -25,6 +25,10 @@ I now use chezmoi to manage my dotfiles.
 
   git clone https://github.com/LazyVim/starter ~/.config/nvim
 
+### tmux
+
+  sudo apt instal tmux
+
 ### Rust
 
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
