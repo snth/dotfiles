@@ -1,0 +1,111 @@
+# -----------------------------------------------------------------------------
+# Window Airflow
+rename-window 'Airflow'
+select-pane -t 0                                # select the first (0) pane
+split-window -h -p 50 -c ~/code/polokelo/airflow
+#send-keys -t left 'cd ~/code/ARGODocks' Enter
+
+# -----------------------------------------------------------------------------
+# Window Analytics
+new-window -n 'Analytics' /bin/bash
+select-pane -t 0                                    # select the first (0) pane
+split-window -h -p 50 -c ~/code/polokelo/analytics  # split into two halves horizontally
+
+select-pane -t left                                 # select the original pane
+split-window -v -p 50 -c ~/code/polokelo/analytics  # split into two halves again
+#send-keys -t 0 'cd ~/code/ARGO' C-m
+
+select-pane -t 2                                # go back to the right pane
+
+# -----------------------------------------------------------------------------
+# Window Dbt
+new-window -n 'Dbt' /bin/bash
+select-pane -t 0                                # select the first (0) pane
+split-window -h -p 50 -c ~/code/polokelo/dbt    # split into two halves horizontally
+
+select-pane -t left                             # select the original pane
+split-window -v -p 50 -c ~/code/polokelo/dbt    # split into two halves again
+#send-keys -t 0 'cd ~/code/ARGOConfig' C-m
+
+select-pane -t 2                                # go back to the right pane
+
+# -----------------------------------------------------------------------------
+# Window Postgres
+new-window -n 'Postgres' /bin/bash
+select-pane -t 0                                    # # select the first (0) pane
+split-window -h -p 50 -c ~/code/polokelo/postgres   # split into two halves horizontally
+
+select-pane -t left                                 # select the original pane
+split-window -v -p 50 -c ~/code/polokelo/postgres   # split into two halves again
+#send-keys -t 0 'cd ~/code/Compliance' Enter
+
+select-pane -t 2                                    # go back to the right pane
+
+# -----------------------------------------------------------------------------
+# Window Compliance
+new-window -n 'Compliance' /bin/bash
+select-pane -t 0                                # select the first (0) pane
+split-window -h -p 50 -c ~/code/Compliance      # split into two halves horizontally
+
+select-pane -t left                             # select the original pane
+split-window -v -p 50 -c ~/code/Compliance      # split into two halves again
+#send-keys -t 0 'cd ~/code/Compliance' Enter
+
+select-pane -t 2                                # go back to the right pane
+
+# -----------------------------------------------------------------------------
+# Window Quintessence
+new-window -n 'Quintessence' /bin/bash
+select-pane -t 0                                # select the first (0) pane
+split-window -h -p 50 -c ~/code/Quintessence    # split into two halves horizontally
+
+select-pane -t left                             # select the original pane
+split-window -v -p 50 -c ~/code/Quintessence    # split into two halves again
+#send-keys -t 0 'cd ~/code/Quintessence' Enter
+
+select-pane -t 2                                # go back to the right pane
+
+# -----------------------------------------------------------------------------
+# Window Servers
+new-window -n 'Servers' /bin/bash
+select-pane -t 0                                # select the first (0) pane
+send-keys 'cd ~/code/polokelo' Enter
+split-window -h -p 50 -c ~/code/polokelo        # split into two halves horizontally
+
+select-pane -t left                             # select the original pane
+#send-keys -t 0 'cd ~/code/polokelo' Enter
+
+select-pane -t 2                                # go back to the right pane
+
+# -----------------------------------------------------------------------------
+# Send change directory commands once terminals have had a chance to open
+#send-keys -t DEV.0 'cd ~/code/ARGODocks' C-m
+select-window -t Airflow
+select-pane -t 0
+send-keys 'cd ~/code/polokelo/airflow' C-m
+
+#send-keys -t STAGING.0 'cd ~/code/ARGODocks' C-m
+select-window -t Analytics
+select-pane -t 0
+send-keys 'cd ~/code/polokelo/analytics' C-m
+
+#send-keys -t STAGING.0 'cd ~/code/ARGODocks' C-m
+select-window -t Dbt
+select-pane -t 0
+send-keys 'cd ~/code/polokelo/dbt' C-m
+
+#send-keys -t STAGING.0 'cd ~/code/ARGODocks' C-m
+select-window -t Postgres
+select-pane -t 0
+send-keys 'cd ~/code/polokelo/postgres' C-m
+
+
+#send-keys -t COMPLIANCE.0 'cd ~/code/ARGODocks' Enter
+select-window -t Compliance
+select-pane -t 0
+send-keys 'cd ~/code/Compliance' C-m
+
+#send-keys - QUINTESSENCE.0 'cd ~/code/ARGODocks' Enter
+select-window -t Quintessence
+select-pane -t 0
+send-keys 'cd ~/code/Quintessence' C-m
