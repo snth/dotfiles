@@ -1,0 +1,30 @@
+[alias]
+	br = branch
+	cfg = config
+	cfgg = config --global
+	cfgl = config --local
+	cm = commit
+	co = checkout
+	cp = cherry-pick
+	df = diff
+	dfc = diff --cached
+	ff = merge --ff-only
+	lg = !git  --no-pager log -10 --pretty=format:\"%C(blue)%an %C(green)%ad %C(red)%h %C(yellow)%d %C(reset)%s\" --date=short --graph --color
+	lgf = !git            log     --pretty=format:\"%C(blue)%an %C(green)%ad %C(red)%h %C(yellow)%d %C(reset)%s\" --date=short --graph --color
+	ll = ls-tree HEAD -r
+	ls = ls-tree HEAD -r --name-only
+	mg = merge
+	mt = mergetool
+	rb = rebase
+	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
+	rs = reset
+	rt = remote
+	st = status
+	sw = switch
+[user]
+	email = Tobias.Brandt@gmail.com
+	name = Tobias Brandt
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
