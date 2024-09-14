@@ -2,11 +2,32 @@
 
 I now use chezmoi to manage my dotfiles.
 
+## Set up the user
+
+  # add the user
+  adduser snth
+
+  # grant sudo privileges
+  usermod -aG sudo snth
+  visudo
+  # snth ALL=(ALL:ALL) ALL
+
+  # disable password ssh authentication
+  TBC
+
+  # copy ssh config and keys
+  scp ~/.ssh/config snth@localhost:~/.ssh/
+  scp ~/.ssh/snth_* snth@localhost:~/.ssh/
+
 ## Install
+
+### Atuin
+
+  TBC
 
 ### Chezmoi
 
-   sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:/snth/dotfiles.git
+   sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init git@github.com:/snth/dotfiles.git --apply
 
 ### Starship
 
@@ -18,7 +39,7 @@ I now use chezmoi to manage my dotfiles.
   sudo apt-get install software-properties-common
   
   # Neovim
-  sudo add-apt-repository ppa:neovim-ppa/stable
+  sudo add-apt-repository ppa:neovim-ppa/unstable
   sudo apt-get update
   sudo apt-get install neovim
 
@@ -38,9 +59,9 @@ I now use chezmoi to manage my dotfiles.
 
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-### Atuin
+### Python with uv
 
-  TBC
+  curl -LsSf https://astral.sh/uv/install.sh | sh
 
 ### Garage S3
 
