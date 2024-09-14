@@ -159,4 +159,18 @@ I now use chezmoi to manage my dotfiles.
 
 ### JuiceFS
 
-  TBC
+  # install
+  curl -sSL https://d.juicefs.com/install | sh
+
+  # create a file system
+  juicefs format --storage s3 \
+    --bucket http://localhost:3900/test \
+    --access-key ${AWS_ACCESS_KEY_ID} \
+    --secret-key ${AWS_SECRET_ACCESS_KEY} \
+    sqlite3://myjfs.db myjfs
+
+  # mount the file system
+  sudo mkdir -p /var/log/juicefs
+  sudo chown snth:snth /var/log/juicefs
+  sudo chmod 755 /var/log/juicefs
+  juicefs mount sqlite3://myjfs.db ~/myjfs &> /var/log/juicefs/myjfs.log &
