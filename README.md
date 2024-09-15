@@ -21,6 +21,11 @@ I now use chezmoi to manage my dotfiles.
 
 ## Install
 
+### Omakub
+
+    # install
+    wget -qO- https://raw.githubusercontent.com/snth/omakub/main/boot.sh | bash
+
 ### Atuin
 
     # install
