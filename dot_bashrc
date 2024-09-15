@@ -139,6 +139,7 @@ eval "$(direnv hook bash)"
 
 # Enable ssh-agent
 eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/snth_id_ed25519
 
 # prql options
 export PRQL_LIB_PATH="$HOME/src/prql-exec:."
