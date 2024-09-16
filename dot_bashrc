@@ -91,10 +91,16 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# exa
+alias ll='exa -lF'
+alias la='exa -lA'
+alias l='exa -F'
+
+# zoxide
+alias cd='z'
+
+# lazygit
+alias lg='lazygit'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -142,8 +148,14 @@ eval "$(starship init bash)"
 eval "$(direnv hook bash)"
 
 # Enable ssh-agent
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/snth_id_ed25519
+# SSH Agent should be running, once
+if ! ps -ef | grep "[s]sh-agent" &>/dev/null; then
+  eval "$(ssh-agent -s)"
+fi
+if ! ssh-add -l &>/dev/null; then
+  #ssh-add ~/.ssh/snth_id_ed25519
+  ssh-add -t 1d
+fi
 
 # prql options
 export PRQL_LIB_PATH="$HOME/src/prql-exec:."
