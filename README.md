@@ -15,9 +15,9 @@ I now use chezmoi to manage my dotfiles.
     # disable password ssh authentication
     TBC
 
-    # copy ssh config and keys
+    # copy ssh key and config
+    ssh-copy-id -i ~/.ssh/snth_id_ed25519 snth@<HOST>.<DOMAIN>
     scp ~/.ssh/config snth@localhost:~/.ssh/
-    scp ~/.ssh/snth_* snth@localhost:~/.ssh/
 
 ## Install
 
