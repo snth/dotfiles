@@ -55,6 +55,18 @@ covered by my Omakub clone.
 
     curl -sS https://starship.rs/install.sh | sh
 
+### Luarocks (required by Neovim)
+
+    sudo apt install build-essential libreadline-dev unzip
+    # Ubuntu 20.04 LTS
+    sudo apt install lua5.1 liblua5.1-dev
+    cd /tmp
+    wget https://luarocks.github.io/luarocks/releases/luarocks-3.11.1.tar.gz
+    tar xvzf luarocks<TAB>
+    ./configure --with-lua-include=/usr/include
+    make
+    sudo make install
+
 ### Neovim
 
     # Prerequisites
