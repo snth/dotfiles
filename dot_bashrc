@@ -1,7 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-source ~/.local/share/omakub/defaults/bash/rc
+[[ -f ~/.local/share/omakub/defaults/bash/rc ]] && source ~/.local/share/omakub/defaults/bash/rc
 
 # Editor used by CLI
 export EDITOR="nvim"
@@ -92,9 +92,9 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # exa
-alias ll='exa -AlF -h'
-alias la='exa -alF -h'
-alias l='exa -lF -h'
+alias ll='eza -AlF -h'
+alias la='eza -alF -h'
+alias l='eza -lF -h'
 
 # zoxide
 alias cd='z'
@@ -168,7 +168,8 @@ alias prqle=prql-exec
 # The next line enables shell command completion for gcloud.
 #if [ -f '/home/tobias/google-cloud-sdk/completion.bash.inc' ]; then . '/home/tobias/google-cloud-sdk/completion.bash.inc'; fi
 
+# Atuin
 . "$HOME/.atuin/bin/env"
+eval "$(atuin init bash --disable-up-arrow)"
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-eval "$(atuin init bash --disable-up-arrow)"
