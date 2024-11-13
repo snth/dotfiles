@@ -91,12 +91,20 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# Add ~/.local/bin to the PATH
+PATH="$HOME/.local/bin:$PATH"
+
+# Rust and cargo
+# Needs to be before apps installed with carg (eg. zoxide)
+. "$HOME/.cargo/env"
+
 # exa
 alias ll='eza -AlF -h'
 alias la='eza -alF -h'
 alias l='eza -lF -h'
 
 # zoxide
+eval "$(zoxide init bash)"
 alias cd='z'
 
 # lazygit
@@ -134,8 +142,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-PATH="$HOME/.local/bin:$PATH"
-. "$HOME/.cargo/env"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
@@ -169,7 +175,7 @@ alias prqle=prql-exec
 #if [ -f '/home/tobias/google-cloud-sdk/completion.bash.inc' ]; then . '/home/tobias/google-cloud-sdk/completion.bash.inc'; fi
 
 # Atuin
-. "$HOME/.atuin/bin/env"
+source "$HOME/.atuin/bin/env"
 eval "$(atuin init bash --disable-up-arrow)"
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
