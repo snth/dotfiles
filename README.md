@@ -26,6 +26,11 @@ I now use chezmoi to manage my dotfiles.
     # install
     wget -qO- https://raw.githubusercontent.com/snth/omakub/main/boot.sh | bash
 
+## Install other utilities
+
+Below are the old instructions for manual installation but these are now all
+covered by my Omakub clone.
+
 ### Atuin
 
     # install
@@ -45,7 +50,7 @@ I now use chezmoi to manage my dotfiles.
 
 ### Chezmoi
 
-    sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init git@github.com:/snth/dotfiles.git --apply
+    sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:/snth/dotfiles.git
 
 ### Starship
 
