@@ -29,7 +29,7 @@ I now use chezmoi to manage my dotfiles.
 
 ### chezmoi config
 
-  chezmoi init --apply snth
+    chezmoi init --apply snth
 
 ## Install other utilities
 
