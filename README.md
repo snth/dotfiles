@@ -2,7 +2,9 @@
 
 I now use chezmoi to manage my dotfiles.
 
-## Set up the user
+## Install
+
+### Set up the user
 
     # add the user
     adduser snth
@@ -12,6 +14,12 @@ I now use chezmoi to manage my dotfiles.
     visudo
     # snth ALL=(ALL:ALL) ALL
 
+### Omakub
+
+    wget -qO- https://raw.githubusercontent.com/snth/omakub/main/boot.sh | bash
+
+### Set up ssh
+
     # disable password ssh authentication
     TBC
 
@@ -19,11 +27,9 @@ I now use chezmoi to manage my dotfiles.
     ssh-copy-id -i ~/.ssh/snth_id_ed25519 snth@<HOST>.<DOMAIN>
     scp ~/.ssh/config snth@localhost:~/.ssh/
 
-## Install
+### chezmoi config
 
-### Omakub
-
-    wget -qO- https://raw.githubusercontent.com/snth/omakub/main/boot.sh | bash
+  chezmoi init --apply snth
 
 ## Install other utilities
 
