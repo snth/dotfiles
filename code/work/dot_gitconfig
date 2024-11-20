@@ -1,0 +1,6 @@
+[user]
+	email = tobias@argonasset.co.za
+	name = Tobias Brandt
+[core]
+  sshCommand = "ssh -i ~/.ssh/tobias-aam"
+

@@ -1,0 +1,6 @@
+[user]
+	email = Tobias.Brandt@gmail.com
+	name = Tobias Brandt
+[core]
+  sshCommand = "ssh -i ~/.ssh/snth_id_ed25519"
+

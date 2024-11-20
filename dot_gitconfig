@@ -9,8 +9,8 @@
 	df = diff
 	dfc = diff --cached
 	ff = merge --ff-only
-	lg = !git  --no-pager log -10 --pretty=format:\"%C(blue)%an %C(green)%ad %C(red)%h %C(yellow)%d %C(reset)%s\" --date=short --graph --color
-	lgf = !git            log     --pretty=format:\"%C(blue)%an %C(green)%ad %C(red)%h %C(yellow)%d %C(reset)%s\" --date=short --graph --color
+	lg = !git  --no-pager log -10 --pretty=format:\"%C(blue)%ae %C(green)%ad %C(red)%h %C(yellow)%d %C(reset)%s\" --date=short --graph --color
+	lgf = !git            log     --pretty=format:\"%C(blue)%ae %C(green)%ad %C(red)%h %C(yellow)%d %C(reset)%s\" --date=short --graph --color
 	ll = ls-tree HEAD -r
 	ls = ls-tree HEAD -r --name-only
 	mg = merge
@@ -21,10 +21,11 @@
 	rt = remote
 	st = status
 	sw = switch
-[user]
-	email = Tobias.Brandt@gmail.com
-	name = Tobias Brandt
 [core]
 	editor = nvim
 [init]
 	defaultBranch = main
+[includeIf "gitdir:~/code/work/"]
+  path = ~/code/work/.gitconfig
+[includeIf "gitdir:~/code/snth/"]
+  path = ~/code/snth/.gitconfig
