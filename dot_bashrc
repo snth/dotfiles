@@ -174,11 +174,11 @@ alias prqle=prql-exec
 # The next line enables shell command completion for gcloud.
 #if [ -f '/home/tobias/google-cloud-sdk/completion.bash.inc' ]; then . '/home/tobias/google-cloud-sdk/completion.bash.inc'; fi
 
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-
 # ble.sh
 source ~/.local/share/blesh/ble.sh
 
 # Atuin
+# Not using .bash-preexec since using ble.sh
+#[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 source "$HOME/.atuin/bin/env"
 eval "$(atuin init bash --disable-up-arrow)"
