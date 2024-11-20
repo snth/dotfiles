@@ -1,0 +1,15 @@
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+    User git
+
+Host aam.local
+    User argo
+    IdentityFile ~/.ssh/argo_rsa
+    PasswordAuthentication yes
+
+Host gitlab.com
+    HostName gitlab.com
+    #Port 443
+    #User git
+    #ForwardAgent yes
