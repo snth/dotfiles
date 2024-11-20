@@ -23,7 +23,6 @@ I now use chezmoi to manage my dotfiles.
 
 ### Omakub
 
-    # install
     wget -qO- https://raw.githubusercontent.com/snth/omakub/main/boot.sh | bash
 
 ## Install other utilities
