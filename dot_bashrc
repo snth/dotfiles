@@ -99,9 +99,9 @@ PATH="$HOME/.local/bin:$PATH"
 . "$HOME/.cargo/env"
 
 # exa
-alias ll='eza -AlF -h'
-alias la='eza -alF -h'
-alias l='eza -lF -h'
+alias ll='eza -AlF -h --group-directories-first'
+alias la='eza -alF -h --group-directories-first'
+alias l='eza -lF -h --group-directories-first'
 
 # zoxide
 eval "$(zoxide init bash)"
