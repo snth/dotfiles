@@ -9,6 +9,7 @@
 	df = diff
 	dfc = diff --cached
 	ff = merge --ff-only
+  fp = push --force-with-lease
 	lg = !git  --no-pager log -10 --pretty=format:\"%C(blue)%ae %C(green)%ad %C(red)%h %C(yellow)%d %C(reset)%s\" --date=short --graph --color
 	lgf = !git            log     --pretty=format:\"%C(blue)%ae %C(green)%ad %C(red)%h %C(yellow)%d %C(reset)%s\" --date=short --graph --color
 	ll = ls-tree HEAD -r
@@ -16,6 +17,7 @@
 	mg = merge
 	mt = mergetool
 	rb = rebase
+  rbc = rebase --continue
 	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
 	rs = reset
 	rt = remote
@@ -29,3 +31,5 @@
   path = ~/code/work/.gitconfig
 [includeIf "gitdir:~/code/snth/"]
   path = ~/code/snth/.gitconfig
+[rerer]
+	enabled = true
