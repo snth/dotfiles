@@ -120,6 +120,9 @@ alias ducker='docker run --rm -i $([ ! -t 0 ] || echo "-t") -v $(pwd):/data -w /
 # Neovim
 alias v='nvim'
 
+# Chezmoi
+alias chzm='chezmoi'
+
 # Harlequin
 alias hq='harlequin'
 
