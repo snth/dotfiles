@@ -159,8 +159,7 @@ if ! ps -ef | grep "[s]sh-agent" &>/dev/null; then
   eval "$(ssh-agent -s)"
 fi
 if ! ssh-add -l &>/dev/null; then
-  #ssh-add ~/.ssh/snth_id_ed25519
-  ssh-add -t 1d
+  ssh-add -t 1d ~/.ssh/{snth_id_ed25519,tobias-aam}
 fi
 
 # prql options
