@@ -88,6 +88,9 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
+# WSL
+alias e='explorer.exe'
+
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -95,7 +98,7 @@ fi
 PATH="$HOME/.local/bin:$PATH"
 
 # Rust and cargo
-# Needs to be before apps installed with carg (eg. zoxide)
+# Needs to be before apps installed with cargo (eg. zoxide)
 . "$HOME/.cargo/env"
 
 # exa
@@ -156,14 +159,12 @@ eval "$(starship init bash)"
 # Enable direnv
 eval "$(direnv hook bash)"
 
-# Enable ssh-agent
-# SSH Agent should be running, once
-if ! ps -ef | grep "[s]sh-agent" &>/dev/null; then
-  eval "$(ssh-agent -s)"
-fi
-if ! ssh-add -l &>/dev/null; then
-  ssh-add -t 1d ~/.ssh/{snth_id_ed25519,tobias-aam}
-fi
+# SOPS
+export SOPS_AGE_KEY_FILE=~/.ssh/snth_age.key
+export SOPS_AGE_RECIPIENTS=$(<~/.ssh/snth_age.pub)
+
+# API_KEYS
+source ~/.ssh/ARGON_API_KEYS.sh
 
 # prql options
 export PRQL_LIB_PATH="$HOME/src/prql-exec:."
@@ -184,3 +185,26 @@ source ~/.local/share/blesh/ble.sh
 #[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 source "$HOME/.atuin/bin/env"
 eval "$(atuin init bash --disable-up-arrow)"
+
+# Fabric AI
+# Loop through all files in the ~/.config/fabric/patterns directory
+for pattern_file in $HOME/.config/fabric/patterns/*; do
+  # Get the base name of the file (i.e., remove the directory path)
+  pattern_name=$(basename "$pattern_file")
+
+  # Create an alias in the form: alias pattern_name="fabric --pattern pattern_name"
+  alias_command="alias $pattern_name='fabric --pattern $pattern_name'"
+
+  # Evaluate the alias command to add it to the current shell
+  eval "$alias_command"
+done
+
+yt() {
+  local video_link="$1"
+  fabric -y "$video_link" --transcript
+}
+
+alias pbpaste='xclip -selection clipboard -o'
+
+# dot for dotfiles management
+eval "$(~/code/snth/dot/dot.sh env)"
