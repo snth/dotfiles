@@ -23,6 +23,8 @@
 	rt = remote
 	st = status
 	sw = switch
+	aa = add -A
+	cxf = clean -xf
 [core]
 	editor = nvim
 [init]
