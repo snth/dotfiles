@@ -125,6 +125,8 @@ alias ducker='docker run --rm -i $([ ! -t 0 ] || echo "-t") -v $(pwd):/data -w /
 
 # Neovim
 alias v='nvim'
+alias vb='nvim ~/.bashrc'
+alias vc='nvim ~/.config/nvim/'
 
 # Chezmoi
 alias chzm='chezmoi'
