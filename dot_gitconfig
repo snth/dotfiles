@@ -7,6 +7,7 @@
 	co = checkout
 	cp = cherry-pick
 	df = diff
+	dfi = diff --cached
 	dfc = diff --cached
 	ff = merge --ff-only
   fp = push --force-with-lease
